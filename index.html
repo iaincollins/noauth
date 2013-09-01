@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>noAuth</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script language="javascript" type="text/javascript" src="noauth.js"></script>
+		<script language="javascript">
+			$(document).on('noAuthUpdateComplete', function(event) {
+				$('[data-noauth-value]').each(function(){
+					var noAuthValue = $(this).data('noauth-value');
+					
+					if (noAuthValue == "Email") {
+						$(this).addClass("label label-default");
+						$(this).attr("href", "mailto:"+$(this).text());
+					}
+
+					if (noAuthValue == "Website") {
+						$(this).addClass("label label-default");
+						$(this).attr("href", $(this).text());
+					}
+					
+					if (noAuthValue == "Twitter") {
+						$(this).addClass("label label-default");
+						$(this).attr("href", "http://twitter.com/"+$(this).text()); 
+					}
+					
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row-fluid">
+				<div class="span12">
+					<h1>noAuth Demo</h1>
+					<h2>About this demo</h2>
+					<p>
+						This is test page to show how noauth might be parsed with JavaScript.
+					<p>
+					<p>
+						This is not presented as an implementation anyone should use, it's just for fun.
+					</p>
+					<p>
+						The example "Comment" below is populated with info from <a href="http://iaincollins.com/noauth">http://iaincollins.com/noauth</a>
+					</p>
+					<h3>Comments <small>(Example usage)</small></h3>
+					<div data-noauth="http://iaincollins.com/noauth.php">
+						<div class="media">
+							<img data-noauth-value="Image" src="" alt="Avatar" class="pull-left" height="48" width="48" />
+							<div class="media-body">
+								<strong data-noauth-value="Name"></strong> <span class="dimmed">today</span>
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+									Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+								</p>
+								<p>
+ 									Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+									Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+								</p>
+								<p>
+									<a data-noauth-value="Email"></a> 
+								    <a data-noauth-value="Website"></a>
+									<a data-noauth-value="Twitter"></a>
+								<p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
